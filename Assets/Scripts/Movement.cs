@@ -4,19 +4,57 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    public float speed = 3.0f;
+    public float speed = 5f;
+    public float jumpForce = 10f;
+
+    public Transform groundCheck;
+    public LayerMask groundLayer;
+    public float groundCheckRadius = 0.2f;
+
     private Vector2 moveInput;
+    private Rigidbody2D rb;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
     }
 
+    public void OnJump(InputValue value)
+    {
+        if (value.isPressed && IsGrounded())
+        {
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                jumpForce
+            );
+        }
+    }
+
     void Update()
     {
-        // Allow movement only along the X-axis
-        Vector3 direction = new Vector3(moveInput.x, 0, 0);
+        // Check if player is touching the ground
+    }
 
-        transform.Translate(direction * speed * Time.deltaTime);
+    void FixedUpdate()
+    {
+        // Horizontal movement
+        rb.linearVelocity = new Vector2(
+            moveInput.x * speed,
+            rb.linearVelocity.y
+        );
+    }
+
+    bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundCheckRadius,
+            groundLayer
+        );
     }
 }
