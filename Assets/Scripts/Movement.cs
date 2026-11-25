@@ -13,10 +13,14 @@ public class Movement : MonoBehaviour
 
     private Vector2 moveInput;
     private Rigidbody2D rb;
+    private Animator anim;
+    private SpriteRenderer spriteRenderer;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void OnMove(InputValue value)
@@ -37,12 +41,25 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        // Check if player is touching the ground
+        // Update running animation
+        anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+
+        // Update grounded state
+        anim.SetBool("IsGrounded", IsGrounded());
+
+        // Flip sprite based on movement direction
+        if (moveInput.x > 0)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (moveInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     void FixedUpdate()
     {
-        // Horizontal movement
         rb.linearVelocity = new Vector2(
             moveInput.x * speed,
             rb.linearVelocity.y
