@@ -614,6 +614,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   groundCheckRadius: 0.2
+  landingDustPrefab: {fileID: 0}
 --- !u!114 &1444378220
 MonoBehaviour:
   m_ObjectHideFlags: 0
