@@ -47,6 +47,9 @@ public class Movement : MonoBehaviour
         // Update grounded state
         anim.SetBool("IsGrounded", IsGrounded());
 
+        // Update falling state
+        anim.SetFloat("YVelocity", rb.linearVelocity.y);
+
         // Flip sprite based on movement direction
         if (moveInput.x > 0)
         {
