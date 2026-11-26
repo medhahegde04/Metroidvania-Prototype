@@ -16,11 +16,16 @@ public class Movement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer spriteRenderer;
 
+    public GameObject jumpDustPrefab;
+    public GameObject landingDustPrefab;
+    private bool wasGrounded;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        wasGrounded = IsGrounded();
     }
 
     public void OnMove(InputValue value)
@@ -36,11 +41,24 @@ public class Movement : MonoBehaviour
                 rb.linearVelocity.x,
                 jumpForce
             );
+
+            GameObject dust = Instantiate(jumpDustPrefab, groundCheck.position, Quaternion.identity);
+            Destroy(dust, 0.3f);
         }
     }
 
     void Update()
     {
+        bool grounded = IsGrounded();
+
+        if (grounded && !wasGrounded)
+        {
+            GameObject dust = Instantiate(landingDustPrefab, groundCheck.position, Quaternion.identity);
+            Destroy(dust, 0.3f);
+        }
+
+        wasGrounded = grounded;
+
         // Update running animation
         anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
 
