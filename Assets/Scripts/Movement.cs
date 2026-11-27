@@ -42,8 +42,8 @@ public class Movement : MonoBehaviour
                 jumpForce
             );
 
-            GameObject dust = Instantiate(jumpDustPrefab, groundCheck.position, Quaternion.identity);
-            Destroy(dust, 0.3f);
+            GameObject dust = Instantiate(jumpDustPrefab, groundCheck.position + Vector3.up * 0.3f, Quaternion.identity);
+            Destroy(dust, 0.7f);
         }
     }
 
@@ -53,8 +53,8 @@ public class Movement : MonoBehaviour
 
         if (grounded && !wasGrounded)
         {
-            GameObject dust = Instantiate(landingDustPrefab, groundCheck.position, Quaternion.identity);
-            Destroy(dust, 0.3f);
+            GameObject dust = Instantiate(landingDustPrefab, groundCheck.position + Vector3.up * 0.3f, Quaternion.identity);
+            Destroy(dust, 0.7f);
         }
 
         wasGrounded = grounded;
