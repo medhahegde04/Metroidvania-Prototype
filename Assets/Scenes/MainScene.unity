@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 394802940}
   - component: {fileID: 394802942}
   - component: {fileID: 394802943}
+  - component: {fileID: 394802944}
   m_Layer: 0
   m_Name: JumpChest
   m_TagString: Chest
@@ -280,6 +281,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 1.5625}
   m_EdgeRadius: 0
+--- !u!114 &394802944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394802939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2792f7b75810246b6d84706816a1f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChestInteraction
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
