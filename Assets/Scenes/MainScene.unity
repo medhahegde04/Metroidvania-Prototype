@@ -603,6 +603,7 @@ GameObject:
   - component: {fileID: 1079883266}
   - component: {fileID: 1079883268}
   - component: {fileID: 1079883269}
+  - component: {fileID: 1079883270}
   m_Layer: 0
   m_Name: JumpKey
   m_TagString: Key
@@ -752,6 +753,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.625, y: 1.0625}
   m_EdgeRadius: 0
+--- !u!114 &1079883270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079883265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f844d58fe1b8428498aa707ca7343224, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KeyInteraction
 --- !u!1 &1444378213
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,9 +780,10 @@ GameObject:
   - component: {fileID: 1444378219}
   - component: {fileID: 1444378220}
   - component: {fileID: 1444378221}
+  - component: {fileID: 1444378222}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -995,6 +1009,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1444378222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444378213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c102a0a0b6fdc834aaffa9285593909d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerInteraction
 --- !u!1 &1475839190
 GameObject:
   m_ObjectHideFlags: 0
